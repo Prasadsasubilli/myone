@@ -16,16 +16,17 @@ pipeline {
             }
         }
 
-       stage('Deploy') {
-           steps {
-               echo 'Deploying HTML page to web server directory...'
-               sh '''
-               rm -rf /var/www/html/*
-               cp -r * /var/www/html/
-               echo "✅ Deployment completed successfully!"
-               '''
+        stage('Deploy') {
+            steps {
+                echo 'Deploying HTML page to web server directory...'
+                sh '''
+                rm -rf /var/www/html/*
+                cp -r * /var/www/html/
+                echo "✅ Deployment completed successfully!"
+                '''
+            }
+        }
     }
-}
 
     post {
         success {
