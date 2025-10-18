@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo 'Pulling code from Git repository...'
-                checkout scm
+                checkout Branch:'main' URL:'https://github.com/Prasadsasubilli/myone.git'
             }
         }
 
