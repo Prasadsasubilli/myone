@@ -5,7 +5,8 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo 'Pulling code from Git repository...'
-                checkout Branch:'main' URL:'https://github.com/Prasadsasubilli/myone.git'
+                // Correct syntax for Git checkout
+                git branch: 'main', url: 'https://github.com/Prasadsasubilli/myone.git'
             }
         }
 
@@ -18,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying HTML page to web server directory...'
-                // Adjust path as needed (e.g., /usr/share/nginx/html if using Nginx)
+                // Make sure Jenkins user has permission for /var/www/html
                 sh '''
                 sudo rm -rf /var/www/html/*
                 sudo cp -r * /var/www/html/
